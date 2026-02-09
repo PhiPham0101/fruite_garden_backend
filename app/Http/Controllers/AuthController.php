@@ -30,10 +30,10 @@ class AuthController extends Controller
 
         $user = Auth::user();
 
-        // ❗ Xóa token cũ (không bắt buộc nhưng nên có)
+        // Xóa token cũ (không bắt buộc nhưng nên có)
         $user->tokens()->delete();
 
-        // ✅ TẠO TOKEN SANCTUM
+        // TẠO TOKEN SANCTUM
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
